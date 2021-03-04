@@ -22,14 +22,14 @@ function App() {
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
                     <Router>
-                        <Route path="/" exact component={WelcomeScreen}/>
+                        {/*<Route path="/" exact component={WelcomeScreen}/>
                         <Route path="/webcam" component={MyWebcam}/>
                         <Route path="/votingcode" component={VotingCode}/>
                         <Route path="/returncode" component={ReturnCode}/>
                         <Route path="/confirmationcode" component={ConfirmationCode}/>
                         <Route path="/finalisationcode" component={FinalisationCode}/>
-                        <Route path="/endscreen" component={EndScreen}/>
-                        <Route path="/test" component={TestStepper}/>
+                        <Route path="/endscreen" component={EndScreen}/>*/}
+                        <Route path="/" exact component={TestStepper}/>
                     </Router>
                 </div>
                 {/*<Botnav/>*/}
