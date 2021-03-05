@@ -5,11 +5,13 @@ function MyWebcam(props) {
     const videoConstraints = {
         width: { min: 480 },
         height: { min: 720 },
-        facingMode: { exact: "environment" }
+        facingMode: "environment",
+        aspectRatio: 0.75
     };
 
     return (
         <Webcam videoConstraints={videoConstraints}
+                audio={false}
                 height={720}/>
     );
 }
