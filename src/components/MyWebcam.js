@@ -10,9 +10,11 @@ function MyWebcam(props) {
     };
 
     return (
-        <Webcam videoConstraints={videoConstraints}
-                audio={false}
-                height={720}/>
+        <Webcam
+            className="Camera"
+            videoConstraints={videoConstraints}
+            audio={false}
+            height={720}/>
     );
 }
 
