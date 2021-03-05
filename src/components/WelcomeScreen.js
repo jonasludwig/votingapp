@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 function WelcomeScreen(props) {
     return (
         <div>
-            <Button variant="contained" color="primary">Wahl starten</Button>
+            Herzlich Willkommen in der Wahlapp!
+            Fahren Sie nun mit den Instruktionen auf Ihren Wahlunterlagen fort.
         </div>
     );
 }

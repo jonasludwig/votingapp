@@ -3,6 +3,7 @@ import "@fontsource/roboto";
 import {CssBaseline, Grid} from "@material-ui/core";
 import Topnav from "./components/Topnav";
 import TestStepper from "./components/TestStepper";
+import VotingStepper from "./components/VotingStepper";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
             <Grid container direction="column">
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
-                    <TestStepper/>
+                    <VotingStepper/>
                 </div>
                 {/*<Botnav/>*/}
             </Grid>
