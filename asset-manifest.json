@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/votingapp/static/css/main.3470c12a.chunk.css",
-    "main.js": "/votingapp/static/js/main.d54a127c.chunk.js",
-    "main.js.map": "/votingapp/static/js/main.d54a127c.chunk.js.map",
-    "runtime-main.js": "/votingapp/static/js/runtime-main.9969f08f.js",
-    "runtime-main.js.map": "/votingapp/static/js/runtime-main.9969f08f.js.map",
+    "main.js": "/votingapp/static/js/main.44bd9485.chunk.js",
+    "main.js.map": "/votingapp/static/js/main.44bd9485.chunk.js.map",
+    "runtime-main.js": "/votingapp/static/js/runtime-main.0a2b2a3c.js",
+    "runtime-main.js.map": "/votingapp/static/js/runtime-main.0a2b2a3c.js.map",
     "static/css/2.5021aca9.chunk.css": "/votingapp/static/css/2.5021aca9.chunk.css",
-    "static/js/2.1d9b447f.chunk.js": "/votingapp/static/js/2.1d9b447f.chunk.js",
-    "static/js/2.1d9b447f.chunk.js.map": "/votingapp/static/js/2.1d9b447f.chunk.js.map",
-    "static/js/3.5a9fbf44.chunk.js": "/votingapp/static/js/3.5a9fbf44.chunk.js",
-    "static/js/3.5a9fbf44.chunk.js.map": "/votingapp/static/js/3.5a9fbf44.chunk.js.map",
+    "static/js/2.4adafd49.chunk.js": "/votingapp/static/js/2.4adafd49.chunk.js",
+    "static/js/2.4adafd49.chunk.js.map": "/votingapp/static/js/2.4adafd49.chunk.js.map",
+    "static/js/3.cdf19ec4.chunk.js": "/votingapp/static/js/3.cdf19ec4.chunk.js",
+    "static/js/3.cdf19ec4.chunk.js.map": "/votingapp/static/js/3.cdf19ec4.chunk.js.map",
     "index.html": "/votingapp/index.html",
     "static/css/2.5021aca9.chunk.css.map": "/votingapp/static/css/2.5021aca9.chunk.css.map",
     "static/css/main.3470c12a.chunk.css.map": "/votingapp/static/css/main.3470c12a.chunk.css.map",
-    "static/js/2.1d9b447f.chunk.js.LICENSE.txt": "/votingapp/static/js/2.1d9b447f.chunk.js.LICENSE.txt",
+    "static/js/2.4adafd49.chunk.js.LICENSE.txt": "/votingapp/static/js/2.4adafd49.chunk.js.LICENSE.txt",
     "static/media/index.css": "/votingapp/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.9969f08f.js",
+    "static/js/runtime-main.0a2b2a3c.js",
     "static/css/2.5021aca9.chunk.css",
-    "static/js/2.1d9b447f.chunk.js",
+    "static/js/2.4adafd49.chunk.js",
     "static/css/main.3470c12a.chunk.css",
-    "static/js/main.d54a127c.chunk.js"
+    "static/js/main.44bd9485.chunk.js"
   ]
 }
