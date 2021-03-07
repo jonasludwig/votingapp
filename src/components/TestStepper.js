@@ -43,11 +43,11 @@ function getStepContent(step, handleNext) {
         case 2:
             return <StartingVoting/>;
         case 3:
-            return <VotingCode handleNext={handleNext}/>;
+            return <VotingCode handleNext={handleNext} timeout={5000}/>;
         case 4:
             return <ReturnCode/>;
         case 5:
-            return <ConfirmationCode/>;
+            return <ConfirmationCode handleNext={handleNext} timeout={5000}/>;
         case 6:
             return <FinalisationCode/>;
         case 7:
@@ -66,11 +66,11 @@ function getButtonText(step) {
         case 2:
             return [true, 'Verstanden'];
         case 3:
-            return [true, '']; {/*TODO change to false to hide button when automatic progress is implemented*/}
+            return [false, ''];
         case 4:
             return [true, 'Der Code ist korrekt'];
         case 5:
-            return [true, '']; {/*TODO change to false to hide button when automatic progress is implemented*/}
+            return [false, ''];
         case 6:
             return [true, 'Der Code ist korrekt'];
         case 7:
