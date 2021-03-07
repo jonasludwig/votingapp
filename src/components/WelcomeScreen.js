@@ -5,8 +5,7 @@ import Typography from "@material-ui/core/Typography";
 function WelcomeScreen(props) {
     return (
         <div>
-            Herzlich Willkommen in der Wahlapp!
-            Fahren Sie nun mit den Instruktionen auf Ihren Wahlunterlagen fort.
+            <Typography variant='h5'>Herzlich Willkommen in der Wahlapp!</Typography>
         </div>
     );
 }

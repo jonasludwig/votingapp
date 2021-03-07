@@ -13,7 +13,7 @@ function App() {
             <Grid container direction="column">
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
-                    <VotingStepper/>
+                    <TestStepper/>
                 </div>
                 {/*<Botnav/>*/}
             </Grid>

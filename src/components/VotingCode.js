@@ -6,7 +6,7 @@ function VotingCode(props) {
     return (
         <div>
             <MyWebcam/>
-                <Button variant="contained" color="primary"> Code gescannt</Button>
+            {setTimeout(() => props.handleNext, 5000)} /*TODO: Somehow called multiple times...*/
         </div>
     );
 }

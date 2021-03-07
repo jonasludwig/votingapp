@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import WelcomeScreen from "./WelcomeScreen";
 import VotingCode from "./VotingCode";
+import ReturnCode from "./ReturnCode";
+import ConfirmationCode from "./ConfirmationCode";
+import FinalisationCode from "./FinalisationCode";
+import EndScreen from "./EndScreen";
+import Selection from "./Selection";
+import StartingVoting from "./StartingVoting";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,19 +34,49 @@ function getSteps() {
     return ['1. Wahlapp', '2. Auswahl', '3. Wahlprozess starten', '4. Wahl', '5. Prüfcode', '6. Bestätigung', '7. Finalisierung', '8. Abschluss'];
 }
 
-function getStepContent(step) {
+function getStepContent(step, handleNext) {
     switch (step) {
         case 0:
-            return <WelcomeScreen/>
+            return <WelcomeScreen/>;
         case 1:
-            return <VotingCode/>;
+            return <Selection/>;
         case 2:
-            return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+            return <StartingVoting/>;
+        case 3:
+            return <VotingCode handleNext={handleNext}/>;
+        case 4:
+            return <ReturnCode/>;
+        case 5:
+            return <ConfirmationCode/>;
+        case 6:
+            return <FinalisationCode/>;
+        case 7:
+            return <EndScreen/>;
         default:
             return 'Unknown step';
+    }
+}
+
+function getButtonText(step) {
+    switch (step) {
+        case 0:
+            return [true, 'Weiter'];
+        case 1:
+            return [true, 'Weiter'];
+        case 2:
+            return [true, 'Verstanden'];
+        case 3:
+            return [true, '']; {/*TODO change to false to hide button when automatic progress is implemented*/}
+        case 4:
+            return [true, 'Der Code ist korrekt'];
+        case 5:
+            return [true, '']; {/*TODO change to false to hide button when automatic progress is implemented*/}
+        case 6:
+            return [true, 'Der Code ist korrekt'];
+        case 7:
+            return [false, ''];
+        default:
+            return [true, 'Next'];
     }
 }
 
@@ -55,14 +89,6 @@ export default function TestStepper() {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
-    };
-
     return (
         <div className={classes.root}>
             <Stepper activeStep={activeStep} orientation="vertical">
@@ -70,38 +96,24 @@ export default function TestStepper() {
                     <Step key={label}>
                         <StepLabel>{label}</StepLabel>
                         <StepContent>
-                            <Typography>{getStepContent(index)}</Typography>
+                            {getStepContent(index, handleNext)}
+                            {getButtonText(index)[0] &&
                             <div className={classes.actionsContainer}>
                                 <div>
-                                    {/*<Button
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        className={classes.button}
-                                    >
-                                        Back
-                                    </Button>*/ /*no back button needed*/}
                                     <Button
                                         variant="contained"
                                         color="primary"
                                         onClick={handleNext}
                                         className={classes.button}
                                     >
-                                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                        {getButtonText(index)[1]}
                                     </Button>
                                 </div>
-                            </div>
+                            </div>}
                         </StepContent>
                     </Step>
                 ))}
             </Stepper>
-            {activeStep === steps.length && (
-                <Paper square elevation={0} className={classes.resetContainer}>
-                    <Typography>All steps completed - you&apos;re finished</Typography>
-                    <Button onClick={handleReset} className={classes.button}>
-                        Reset
-                    </Button>
-                </Paper>
-            )}
         </div>
     );
 }

@@ -6,7 +6,6 @@ function ConfirmationCode(props) {
     return (
         <div>
             <MyWebcam/>
-                <Button variant="contained" color="primary"> Code gescannt</Button>
         </div>
     );
 }
