@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import MyWebcam from "./MyWebcam";
+import overlay from "./overlay_confirmation.png"
 
 function ConfirmationCode(props) {
     const [timeoutSet, setTimeoutSet] = React.useState(false);
@@ -12,7 +13,8 @@ function ConfirmationCode(props) {
     }, [timeoutSet, props]);
 
     return (
-        <div>
+        <div className='CameraBox'>
+            <img src={overlay} alt='' className='Overlay'/>
             <MyWebcam/>
         </div>
     );

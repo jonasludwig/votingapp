@@ -4,7 +4,20 @@
   text-align: center;
 }
 
+.CameraBox {
+  position: relative;
+}
+
 .Camera {
   height: 75vh;
   width: 80vw;
+}
+
+.Overlay {
+  position: absolute;
+  width: 80vw;
+  opacity: 40%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
