@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/votingapp/static/css/main.6c8b648a.chunk.css",
+    "main.css": "/votingapp/static/css/main.66c66389.chunk.css",
     "main.js": "/votingapp/static/js/main.3da30f4e.chunk.js",
     "main.js.map": "/votingapp/static/js/main.3da30f4e.chunk.js.map",
     "runtime-main.js": "/votingapp/static/js/runtime-main.0a2b2a3c.js",
@@ -12,7 +12,7 @@
     "static/js/3.cdf19ec4.chunk.js.map": "/votingapp/static/js/3.cdf19ec4.chunk.js.map",
     "index.html": "/votingapp/index.html",
     "static/css/2.5021aca9.chunk.css.map": "/votingapp/static/css/2.5021aca9.chunk.css.map",
-    "static/css/main.6c8b648a.chunk.css.map": "/votingapp/static/css/main.6c8b648a.chunk.css.map",
+    "static/css/main.66c66389.chunk.css.map": "/votingapp/static/css/main.66c66389.chunk.css.map",
     "static/js/2.4adafd49.chunk.js.LICENSE.txt": "/votingapp/static/js/2.4adafd49.chunk.js.LICENSE.txt",
     "static/media/index.css": "/votingapp/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.0a2b2a3c.js",
     "static/css/2.5021aca9.chunk.css",
     "static/js/2.4adafd49.chunk.js",
-    "static/css/main.6c8b648a.chunk.css",
+    "static/css/main.66c66389.chunk.css",
     "static/js/main.3da30f4e.chunk.js"
   ]
 }
