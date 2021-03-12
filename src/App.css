@@ -1,7 +1,10 @@
 .ContainerStyles {
   height: calc(100vh - 77.5px); /*TODO höhe anpassen ggf, so dass man halt die höhe von der topnav und botnav abzieht.*/
-  overflow: auto;
+  overflow: hidden;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CameraBox {
@@ -9,8 +12,8 @@
 }
 
 .Camera {
-  height: 75vh;
-  width: 80vw;
+  height: 100vh;
+  width: 90vw;
 }
 
 .Overlay {
@@ -20,4 +23,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.Button {
+
 }
