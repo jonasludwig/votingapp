@@ -1,15 +1,17 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import {Grid} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 
 function Menu({step, steps, handleNext}) {
+
     return (
-        <div>
             <Grid
                 container
                 direction="column"
                 justify="center"
-                alignItems="center">
+                alignItems="center"
+                style={{ gap: 15 }}>
                 <Button
                     variant="contained"
                     color="primary"
@@ -24,8 +26,8 @@ function Menu({step, steps, handleNext}) {
                     onClick={handleNext}>
                     Bestätigungscode scannen
                 </Button>
+                {step === steps.finish && <Typography variant='h5'>Wahl abgeschlossen.</Typography>}
             </Grid>
-        </div>
     );
 }
 

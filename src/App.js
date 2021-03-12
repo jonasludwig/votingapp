@@ -1,6 +1,7 @@
 import './App.css';
 import "@fontsource/roboto";
-import {CssBaseline, Grid} from "@material-ui/core";
+import {createMuiTheme, CssBaseline, Grid} from "@material-ui/core";
+import {ThemeProvider} from "@material-ui/core/styles";
 import Topnav from "./components/Topnav";
 import TestStepper from "./components/TestStepper";
 import VotingStepper from "./components/VotingStepper";
@@ -41,11 +42,10 @@ function App() {
                     {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
                     {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext} timeout={10000}/>}
                     {step === steps.finalisationCode && <FinalisationCode handleNext={handleNext}/>}
-                    {step === steps.finish && <EndScreen/>}
+                    {step === steps.finish && <Menu step={step} steps={steps} handleNext={handleNext}/>}
                 </div>
             </Grid>
             <CssBaseline/>
-
         </div>
     );
 }

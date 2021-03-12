@@ -10,7 +10,7 @@ function VotingCode(props) {
             setTimeout(() => props.handleNext(), props.timeout);
             setTimeoutSet(true);
         }
-    }, [timeoutSet, props]);
+    }, [timeoutSet, props]); //TODO use https://github.com/nimiq/qr-scanner to scan for actual qr-codes
 
     return (
         <div className='CameraBox'>
