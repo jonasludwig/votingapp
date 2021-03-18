@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "gh-pages": "^3.1.0",
     "qr-scanner": "^1.2.0",
+    "raw-loader": "^4.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -46,5 +47,8 @@
   },
   "homepage": "https://jonasludwig.github.io/votingapp",
   "devDependencies": {},
-  "files": ["scanner/qr-scanner-worker.min.js"]
+  "files": [
+    "scanner/qr-scanner-worker.min.js",
+    "scanner/qr-scanner-worker.min.js.map"
+  ]
 }

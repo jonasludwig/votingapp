@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import overlay from "./overlay_confirmation.png"
 import QrScanner from 'qr-scanner';
-import qrScannerWorkerSource from 'qr-scanner/qr-scanner-worker.min';
+//import qrScannerWorkerSource from 'qr-scanner/qr-scanner-worker.min';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import qrScannerWorkerSource from '!!raw-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 import Webcam from "react-webcam";
 
 QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
@@ -17,8 +19,6 @@ function ConfirmationCode(props) {
         aspectRatio: 0.75
     };
 
-    console.log(QrScanner.WORKER_PATH);
-
     useEffect(() => {
         if (timeoutSet === false) {
             setTimeout(() => props.handleNext(), props.timeout);
@@ -28,18 +28,14 @@ function ConfirmationCode(props) {
 
     useEffect(() => {
         if (intervalSet === false) {
-            setTimeout(() => {
+            setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
-                console.log(imageSrc);
-
                 QrScanner.scanImage(imageSrc).then(result => console.log(result))
                     .catch(error => console.log(error || 'No QR code found.'));
-            }, 1500);
+            }, 500);
             setIntervalSet(true);
         }
     }, [intervalSet, props]);
-
-    console.log(QrScanner.hasCamera());
 
     return (
         <div className='CameraBox'>
