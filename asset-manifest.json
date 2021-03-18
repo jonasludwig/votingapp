@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/votingapp/static/css/main.63b53231.chunk.css",
-    "main.js": "/votingapp/static/js/main.591913fe.chunk.js",
-    "main.js.map": "/votingapp/static/js/main.591913fe.chunk.js.map",
-    "runtime-main.js": "/votingapp/static/js/runtime-main.7ce86f92.js",
-    "runtime-main.js.map": "/votingapp/static/js/runtime-main.7ce86f92.js.map",
+    "main.css": "/votingapp/static/css/main.b23baa9a.chunk.css",
+    "main.js": "/votingapp/static/js/main.eb6418ff.chunk.js",
+    "main.js.map": "/votingapp/static/js/main.eb6418ff.chunk.js.map",
+    "runtime-main.js": "/votingapp/static/js/runtime-main.b234ba08.js",
+    "runtime-main.js.map": "/votingapp/static/js/runtime-main.b234ba08.js.map",
     "static/css/2.5021aca9.chunk.css": "/votingapp/static/css/2.5021aca9.chunk.css",
-    "static/js/2.517495bb.chunk.js": "/votingapp/static/js/2.517495bb.chunk.js",
-    "static/js/2.517495bb.chunk.js.map": "/votingapp/static/js/2.517495bb.chunk.js.map",
-    "static/js/3.db8d99a2.chunk.js": "/votingapp/static/js/3.db8d99a2.chunk.js",
-    "static/js/3.db8d99a2.chunk.js.map": "/votingapp/static/js/3.db8d99a2.chunk.js.map",
+    "static/js/2.84d2c839.chunk.js": "/votingapp/static/js/2.84d2c839.chunk.js",
+    "static/js/2.84d2c839.chunk.js.map": "/votingapp/static/js/2.84d2c839.chunk.js.map",
+    "static/js/3.46ab2e42.chunk.js": "/votingapp/static/js/3.46ab2e42.chunk.js",
+    "static/js/3.46ab2e42.chunk.js.map": "/votingapp/static/js/3.46ab2e42.chunk.js.map",
     "index.html": "/votingapp/index.html",
     "static/css/2.5021aca9.chunk.css.map": "/votingapp/static/css/2.5021aca9.chunk.css.map",
-    "static/css/main.63b53231.chunk.css.map": "/votingapp/static/css/main.63b53231.chunk.css.map",
-    "static/js/2.517495bb.chunk.js.LICENSE.txt": "/votingapp/static/js/2.517495bb.chunk.js.LICENSE.txt",
+    "static/css/main.b23baa9a.chunk.css.map": "/votingapp/static/css/main.b23baa9a.chunk.css.map",
+    "static/js/2.84d2c839.chunk.js.LICENSE.txt": "/votingapp/static/js/2.84d2c839.chunk.js.LICENSE.txt",
     "static/media/index.css": "/votingapp/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.7ce86f92.js",
+    "static/js/runtime-main.b234ba08.js",
     "static/css/2.5021aca9.chunk.css",
-    "static/js/2.517495bb.chunk.js",
-    "static/css/main.63b53231.chunk.css",
-    "static/js/main.591913fe.chunk.js"
+    "static/js/2.84d2c839.chunk.js",
+    "static/css/main.b23baa9a.chunk.css",
+    "static/js/main.eb6418ff.chunk.js"
   ]
 }
