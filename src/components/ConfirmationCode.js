@@ -9,7 +9,6 @@ import Webcam from "react-webcam";
 QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 
 function ConfirmationCode(props) {
-    const [timeoutSet, setTimeoutSet] = React.useState(false);
     const [intervalSet, setIntervalSet] = React.useState(false);
     const webcamRef = React.useRef(null);
     const videoConstraints = {
@@ -20,17 +19,14 @@ function ConfirmationCode(props) {
     };
 
     useEffect(() => {
-        if (timeoutSet === false) {
-            setTimeout(() => props.handleNext(), props.timeout);
-            setTimeoutSet(true);
-        }
-    }, [timeoutSet, props]); //TODO use https://github.com/nimiq/qr-scanner to scan for actual qr-codes
-
-    useEffect(() => {
         if (intervalSet === false) {
-            setInterval(() => {
+            var interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
-                QrScanner.scanImage(imageSrc).then(result => console.log(result))
+                QrScanner.scanImage(imageSrc).then(result => {
+                    console.log(result)
+                    clearInterval(interval);
+                    props.handleNext();
+                })
                     .catch(error => console.log(error || 'No QR code found.'));
             }, 500);
             setIntervalSet(true);

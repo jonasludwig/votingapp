@@ -40,7 +40,7 @@ function App() {
                     {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} timeout={0}/>} {/*TODO set timeout*/}
                     {step === steps.returnCode && <ReturnCode handleNext={handleNext}/>}
                     {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                    {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext} timeout={10000}/>}
+                    {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext}/>}
                     {step === steps.finalisationCode && <FinalisationCode handleNext={handleNext}/>}
                     {step === steps.finish && <Menu step={step} steps={steps} handleNext={handleNext}/>}
                 </div>
