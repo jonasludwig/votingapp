@@ -37,7 +37,7 @@ function App() {
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
                     {step === steps.start && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                    {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} timeout={10000}/>}
+                    {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} timeout={0}/>} {/*TODO set timeout*/}
                     {step === steps.returnCode && <ReturnCode handleNext={handleNext}/>}
                     {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
                     {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext} timeout={10000}/>}
