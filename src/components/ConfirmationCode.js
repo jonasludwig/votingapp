@@ -23,9 +23,11 @@ function ConfirmationCode(props) {
             var interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
                 QrScanner.scanImage(imageSrc).then(result => {
-                    console.log(result)
-                    clearInterval(interval);
-                    props.handleNext();
+                    console.log(result);
+                    if (result === "a321-m25n1-ks1p"){
+                        clearInterval(interval);
+                        props.handleNext();
+                    }
                 })
                     .catch(error => console.log(error || 'No QR code found.'));
             }, 500);

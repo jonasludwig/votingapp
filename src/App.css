@@ -19,7 +19,7 @@
 .Overlay {
   position: absolute;
   width: 80vw;
-  opacity: 90%;
+  opacity: 0.5;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
