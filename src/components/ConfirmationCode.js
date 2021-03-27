@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import overlay from "./overlay_confirmation.png"
 import QrScanner from 'qr-scanner';
-//import qrScannerWorkerSource from 'qr-scanner/qr-scanner-worker.min';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import qrScannerWorkerSource from '!!raw-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 import Webcam from "react-webcam";
@@ -12,10 +11,10 @@ function ConfirmationCode(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
     const webcamRef = React.useRef(null);
     const videoConstraints = {
+        aspectRatio: 0.75,
         width: {min: 480},
         height: {min: 720},
-        facingMode: "environment",
-        aspectRatio: 0.75
+        facingMode: "environment"
     };
 
     useEffect(() => {

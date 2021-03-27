@@ -1,18 +1,13 @@
 import './App.css';
 import "@fontsource/roboto";
-import {createMuiTheme, CssBaseline, Grid} from "@material-ui/core";
-import {ThemeProvider} from "@material-ui/core/styles";
+import {CssBaseline, Grid} from "@material-ui/core";
 import Topnav from "./components/Topnav";
-import TestStepper from "./components/TestStepper";
-import VotingStepper from "./components/VotingStepper";
 import React from "react";
-import WelcomeScreen from "./components/WelcomeScreen";
 import Menu from "./components/Menu";
 import VotingCode from "./components/VotingCode";
 import ReturnCode from "./components/ReturnCode";
 import ConfirmationCode from "./components/ConfirmationCode";
 import FinalisationCode from "./components/FinalisationCode";
-import EndScreen from "./components/EndScreen";
 
 const steps = {
     start : 0,

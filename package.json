@@ -46,9 +46,5 @@
     ]
   },
   "homepage": "https://jonasludwig.github.io/votingapp",
-  "devDependencies": {},
-  "files": [
-    "scanner/qr-scanner-worker.min.js",
-    "scanner/qr-scanner-worker.min.js.map"
-  ]
+  "devDependencies": {}
 }
