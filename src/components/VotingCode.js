@@ -8,21 +8,12 @@ import Webcam from "react-webcam";
 QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 
 const correctPassword = "ebri-esp6-hwrv-8542-mqih";
-const correctVotingCodes = ["lrDyL-Eh0V6-rEv5r-OhPqH", "z31p9-GkixB-LOkxP-4zBJD",
-    "uGCtm-s175L-gWylC-xpFDz", "SzSC0-4gcDC-hR8bN-seWVa"]
 const votingCodes = new Map();
-votingCodes.set("lrDyL-Eh0V6-rEv5r-OhPqH","8971");
-votingCodes.set("z31p9-GkixB-LOkxP-4zBJD","6439");
-votingCodes.set("uGCtm-s175L-gWylC-xpFDz","7526");
-votingCodes.set("SzSC0-4gcDC-hR8bN-seWVa","4789");
+votingCodes.set("lrDyL-Eh0V6-rEv5r-OhPqH","6439");
+votingCodes.set("z31p9-GkixB-LOkxP-4zBJD","8971");
+votingCodes.set("uGCtm-s175L-gWylC-xpFDz","4789");
+votingCodes.set("SzSC0-4gcDC-hR8bN-seWVa","7526");
 const scanningInterval = 200;
-
-function codesValid(passwordValid, votingCodeValid, handleNext, interval){
-    if(passwordValid && votingCodeValid){
-        clearInterval(interval);
-        handleNext();
-    }
-}
 
 function VotingCode(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
@@ -42,6 +33,7 @@ function VotingCode(props) {
             let scanTop = true;
             let width = 0;
             let height = 0;
+            let nextHandled = false;
 
             let interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
@@ -78,7 +70,15 @@ function VotingCode(props) {
                             if (result === correctPassword) {
                                 passwordValid = true;
                             }
-                            codesValid(passwordValid, votingCodeValid, props.handleNext, interval);
+
+                            if(passwordValid && votingCodeValid){
+                                clearInterval(interval);
+                                if(!nextHandled){
+                                    nextHandled = true;
+                                    props.handleNext();
+                                }
+
+                            }
                         }).catch(error => console.log('No QR code found. \nPassword: ' + passwordValid + ' VotingCode: ' + votingCodeValid));
                         scanTop = !scanTop;
                     }

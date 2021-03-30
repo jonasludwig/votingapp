@@ -18,14 +18,20 @@ function ConfirmationCode(props) {
     };
 
     useEffect(() => {
+
+        let nextHandled = false;
+
         if (intervalSet === false) {
             var interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
                 QrScanner.scanImage(imageSrc).then(result => {
                     console.log(result);
-                    if (result === "a321-m25n1-ks1p"){
+                    if (result === "a321-m25n1-ks1p") {
                         clearInterval(interval);
-                        props.handleNext();
+                        if (!nextHandled) {
+                            nextHandled = true;
+                            props.handleNext();
+                        }
                     }
                 })
                     .catch(error => console.log(error || 'No QR code found.'));
