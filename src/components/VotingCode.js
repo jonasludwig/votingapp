@@ -10,6 +10,7 @@ QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 const correctPassword = "ebri-esp6-hwrv-8542-mqih";
 const correctVotingCodes = ["lrDyL-Eh0V6-rEv5r-OhPqH", "z31p9-GkixB-LOkxP-4zBJD",
     "uGCtm-s175L-gWylC-xpFDz", "SzSC0-4gcDC-hR8bN-seWVa"]
+const scanningInterval = 200;
 
 function codesValid(passwordValid, votingCodeValid, handleNext, interval){
     if(passwordValid && votingCodeValid){
@@ -31,38 +32,48 @@ function VotingCode(props) {
     useEffect(() => {
         if (intervalSet === false) {
 
-            var passwordValid = false;
-            var votingCodeValid = false;
+            let passwordValid = false;
+            let votingCodeValid = false;
+            let scanTop = true;
+            let width = 0;
+            let height = 0;
 
-            var interval = setInterval(() => {
+            let interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
-                var image = new Image();
-                image.onload = function(){
-                    QrScanner.scanImage(image, {x: 0, y: 0, height : image.height*0.6, width:image.width }).then(result => {
-                        console.log(result);
 
-                        if (correctVotingCodes.includes(result)){
-                            votingCodeValid = true;
-                        }
-                        if (result === correctPassword){
-                            passwordValid = true;
-                        }
-                        codesValid(passwordValid, votingCodeValid, props.handleNext, interval);
-                    }).catch(error => console.log('No QR code found. \nPassword: ' + passwordValid + ' VotingCode: ' + votingCodeValid));
-                    QrScanner.scanImage(image, {x: 0, y: image.height*0.4, height : image.height*0.6, width: image.width }).then(result => {
-                        console.log(result);
+                if (imageSrc === null) {
+                    //screenshot not yet available. do nothing
+                } else {
+                    if (width === 0 || height === 0) {
+                        let image = new Image();
+                        image.onload = function () {
+                            width = image.width;
+                            height = image.height;
+                            console.log("Webcam-Screenshot has dimensions " + width + "x" + height);
+                        };
+                        image.src = imageSrc;
+                    } else {
+                        //screenshots are available and size is known. Scan image, alternating between scanning the top and the bottom.
+                        QrScanner.scanImage(imageSrc, {
+                            x: 0,
+                            y: scanTop ? 0 : height * 0.4,
+                            height: height * 0.6,
+                            width: width
+                        }).then(result => {
+                            console.log(result);
 
-                        if (correctVotingCodes.includes(result)){
-                            votingCodeValid = true;
-                        }
-                        if (result === correctPassword){
-                            passwordValid = true;
-                        }
-                        codesValid(passwordValid, votingCodeValid, props.handleNext, interval);
-                    }).catch(error => console.log('No QR code found. \nPassword: ' + passwordValid + ' VotingCode: ' + votingCodeValid));
-                };
-                image.src = imageSrc
-            }, 500);
+                            if (correctVotingCodes.includes(result)) {
+                                votingCodeValid = true;
+                            }
+                            if (result === correctPassword) {
+                                passwordValid = true;
+                            }
+                            codesValid(passwordValid, votingCodeValid, props.handleNext, interval);
+                        }).catch(error => console.log('No QR code found. \nPassword: ' + passwordValid + ' VotingCode: ' + votingCodeValid));
+                        scanTop = !scanTop;
+                    }
+                }
+            }, scanningInterval);
             setIntervalSet(true);
         }
     }, [intervalSet, props]);
