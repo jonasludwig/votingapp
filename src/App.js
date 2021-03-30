@@ -21,6 +21,7 @@ const steps = {
 
 function App() {
     const [step, setStep] = React.useState(steps.start);
+    const [returnCode, setReturnCode] = React.useState("");
 
     const handleNext = () => {
         setStep((prevStep) => prevStep + 1);
@@ -32,8 +33,8 @@ function App() {
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
                     {step === steps.start && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                    {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} timeout={0}/>} {/*TODO set timeout*/}
-                    {step === steps.returnCode && <ReturnCode handleNext={handleNext}/>}
+                    {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} setReturnCode={setReturnCode}/>}
+                    {step === steps.returnCode && <ReturnCode handleNext={handleNext} returnCode={returnCode}/>}
                     {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
                     {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext}/>}
                     {step === steps.finalisationCode && <FinalisationCode handleNext={handleNext}/>}

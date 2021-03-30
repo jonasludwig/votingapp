@@ -2,7 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/Button";
 import {Checkbox, FormControlLabel, Typography} from '@material-ui/core';
 
-function ReturnCode({handleNext}) {
+function ReturnCode({handleNext, returnCode}) {
     const [state, setState] = React.useState({checked: false});
 
     const handleChange = (event) => {
@@ -12,7 +12,7 @@ function ReturnCode({handleNext}) {
     return (
         <div>
             <Typography variant='h4'>Prüfcode</Typography>
-            <Typography variant='h4'>7526</Typography>
+            <Typography variant='h4'>{returnCode}</Typography>
 
             <FormControlLabel
                 control={

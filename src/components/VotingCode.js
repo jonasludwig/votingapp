@@ -10,6 +10,11 @@ QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 const correctPassword = "ebri-esp6-hwrv-8542-mqih";
 const correctVotingCodes = ["lrDyL-Eh0V6-rEv5r-OhPqH", "z31p9-GkixB-LOkxP-4zBJD",
     "uGCtm-s175L-gWylC-xpFDz", "SzSC0-4gcDC-hR8bN-seWVa"]
+const votingCodes = new Map();
+votingCodes.set("lrDyL-Eh0V6-rEv5r-OhPqH","8971");
+votingCodes.set("z31p9-GkixB-LOkxP-4zBJD","6439");
+votingCodes.set("uGCtm-s175L-gWylC-xpFDz","7526");
+votingCodes.set("SzSC0-4gcDC-hR8bN-seWVa","4789");
 const scanningInterval = 200;
 
 function codesValid(passwordValid, votingCodeValid, handleNext, interval){
@@ -62,9 +67,14 @@ function VotingCode(props) {
                         }).then(result => {
                             console.log(result);
 
-                            if (correctVotingCodes.includes(result)) {
-                                votingCodeValid = true;
+                            for (const code of votingCodes.keys()){
+                                if(result === code){
+                                    votingCodeValid = true;
+                                    props.setReturnCode(votingCodes.get(result));
+                                    break;
+                                }
                             }
+
                             if (result === correctPassword) {
                                 passwordValid = true;
                             }
