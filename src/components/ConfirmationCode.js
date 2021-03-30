@@ -7,6 +7,8 @@ import Webcam from "react-webcam";
 
 QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 
+const scanningInterval = 200;
+
 function ConfirmationCode(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
     const webcamRef = React.useRef(null);
@@ -22,7 +24,7 @@ function ConfirmationCode(props) {
         let nextHandled = false;
 
         if (intervalSet === false) {
-            var interval = setInterval(() => {
+            let interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
                 QrScanner.scanImage(imageSrc).then(result => {
                     console.log(result);
@@ -35,7 +37,7 @@ function ConfirmationCode(props) {
                     }
                 })
                     .catch(error => console.log(error || 'No QR code found.'));
-            }, 500);
+            }, scanningInterval);
             setIntervalSet(true);
         }
     }, [intervalSet, props]);
@@ -48,8 +50,7 @@ function ConfirmationCode(props) {
                 videoConstraints={videoConstraints}
                 audio={false}
                 screenshotFormat="image/jpeg"
-                ref={webcamRef}
-                height={720}/>
+                ref={webcamRef}/>
         </div>
     );
 }

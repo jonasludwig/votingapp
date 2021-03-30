@@ -96,9 +96,7 @@ function VotingCode(props) {
                 videoConstraints={videoConstraints}
                 audio={false}
                 screenshotFormat="image/jpeg"
-                ref={webcamRef}
-                height={720}
-            />
+                ref={webcamRef}/>
         </div>
     );
 }
