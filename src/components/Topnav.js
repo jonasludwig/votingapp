@@ -5,7 +5,7 @@ function Topnav(props) {
     return (
         <AppBar position="static">
             <Toolbar>
-                <h1>Wahlapp</h1>
+                <h1>Wahl-Webseite</h1>
             </Toolbar>
         </AppBar>
     );
