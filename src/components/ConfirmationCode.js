@@ -50,7 +50,8 @@ function ConfirmationCode(props) {
                 videoConstraints={videoConstraints}
                 audio={false}
                 screenshotFormat="image/jpeg"
-                ref={webcamRef}/>
+                ref={webcamRef}
+                onUserMediaError={(error) => console.log(error)}/>
         </div>
     );
 }
