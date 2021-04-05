@@ -11,6 +11,7 @@ const scanningInterval = 200;
 
 function ConfirmationCode(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
+    const [webcamReady, setWebcamReady] = React.useState(false);
     const webcamRef = React.useRef(null);
     const videoConstraints = {
         aspectRatio: 0.75,
@@ -26,25 +27,33 @@ function ConfirmationCode(props) {
         if (intervalSet === false) {
             let interval = setInterval(() => {
                 const imageSrc = webcamRef.current.getScreenshot();
-                QrScanner.scanImage(imageSrc).then(result => {
-                    console.log(result);
-                    if (result === "a321-m25n1-ks1p") {
-                        clearInterval(interval);
-                        if (!nextHandled) {
-                            nextHandled = true;
-                            props.handleNext();
-                        }
+
+                if (imageSrc === null) {
+                    //screenshot not yet available. do nothing
+                } else {
+                    if(!webcamReady) {
+                        setWebcamReady(true);
                     }
-                })
-                    .catch(error => console.log(error || 'No QR code found.'));
+                    QrScanner.scanImage(imageSrc).then(result => {
+                        console.log(result);
+                        if (result === "a321-m25n1-ks1p") {
+                            clearInterval(interval);
+                            if (!nextHandled) {
+                                nextHandled = true;
+                                props.handleNext();
+                            }
+                        }
+                    })
+                        .catch(error => console.log(error || 'No QR code found.'));
+                }
             }, scanningInterval);
             setIntervalSet(true);
         }
-    }, [intervalSet, props]);
+    }, [intervalSet, webcamReady, props]);
 
     return (
         <div className='CameraBox'>
-            <img src={overlay} alt='' className='Overlay'/>
+            {webcamReady && <img src={overlay} alt='' className='Overlay'/>}
             <Webcam
                 className="Camera"
                 videoConstraints={videoConstraints}

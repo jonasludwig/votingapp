@@ -17,6 +17,7 @@ const scanningInterval = 200;
 
 function VotingCode(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
+    const [webcamReady, setWebcamReady] = React.useState(false);
     const webcamRef = React.useRef(null);
     const videoConstraints = {
         width: {min: 510},
@@ -47,6 +48,7 @@ function VotingCode(props) {
                             width = image.width;
                             height = image.height;
                             console.log("Webcam-Screenshot has dimensions " + width + "x" + height);
+                            setWebcamReady(true);
                         };
                         image.src = imageSrc;
                     } else {
@@ -86,11 +88,11 @@ function VotingCode(props) {
             }, scanningInterval);
             setIntervalSet(true);
         }
-    }, [intervalSet, props]);
+    }, [intervalSet, webcamReady, props]);
 
     return (
         <div className='CameraBox'>
-            <img src={overlay} alt='' className='Overlay'/>
+            {webcamReady && <img src={overlay} alt='' className='Overlay'/>}
             <Webcam
                 className="Camera"
                 videoConstraints={videoConstraints}
