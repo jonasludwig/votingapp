@@ -26,7 +26,15 @@ function Menu({step, steps, handleNext}) {
                     onClick={handleNext}>
                     Bestätigungscode scannen
                 </Button>
-                {step === steps.finish && <Typography variant='h5'>Wahl abgeschlossen.</Typography>}
+                {step === steps.finish && <Typography variant='h6'>Wahl abgeschlossen.</Typography>}
+                {step === steps.finish && <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {var url = 'https://www.soscisurvey.de/'; //TODO add correct URL here
+                        var win = window.open(url, '_self');
+                        win.focus();}}>
+                    Feedback geben
+                </Button>}
             </Grid>
     );
 }
