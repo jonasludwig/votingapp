@@ -20,9 +20,12 @@ function VotingCode(props) {
     const [webcamReady, setWebcamReady] = React.useState(false);
     const webcamRef = React.useRef(null);
     const videoConstraints = {
-        width: {min: 510},
+        aspectRatio: {
+            exact: 1.3
+        },
+        width: {min: 480},
         height: {min: 720},
-        aspectRatio: 0.75,
+        resizeMode: "crop-and-scale",
         facingMode: "environment"
     }
 
