@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/votingapp/static/css/main.e800f408.chunk.css",
-    "main.js": "/votingapp/static/js/main.ee83adfd.chunk.js",
-    "main.js.map": "/votingapp/static/js/main.ee83adfd.chunk.js.map",
+    "main.js": "/votingapp/static/js/main.90561f38.chunk.js",
+    "main.js.map": "/votingapp/static/js/main.90561f38.chunk.js.map",
     "runtime-main.js": "/votingapp/static/js/runtime-main.39a3b551.js",
     "runtime-main.js.map": "/votingapp/static/js/runtime-main.39a3b551.js.map",
     "static/css/2.5021aca9.chunk.css": "/votingapp/static/css/2.5021aca9.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.5021aca9.chunk.css",
     "static/js/2.3735e9d7.chunk.js",
     "static/css/main.e800f408.chunk.css",
-    "static/js/main.ee83adfd.chunk.js"
+    "static/js/main.90561f38.chunk.js"
   ]
 }
