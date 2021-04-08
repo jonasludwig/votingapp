@@ -8,6 +8,12 @@ import VotingCode from "./components/VotingCode";
 import ReturnCode from "./components/ReturnCode";
 import ConfirmationCode from "./components/ConfirmationCode";
 import FinalisationCode from "./components/FinalisationCode";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const steps = {
     start : 0,
@@ -28,21 +34,31 @@ function App() {
     };
 
     return (
-        <div>
-            <Grid container direction="column">
-                <Topnav className="Topnav"/>
-                <div className="ContainerStyles">
-                    {step === steps.start && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                    {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} setReturnCode={setReturnCode}/>}
-                    {step === steps.returnCode && <ReturnCode handleNext={handleNext} returnCode={returnCode}/>}
-                    {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                    {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext}/>}
-                    {step === steps.finalisationCode && <FinalisationCode handleNext={handleNext}/>}
-                    {step === steps.finish && <Menu step={step} steps={steps} handleNext={handleNext}/>}
-                </div>
-            </Grid>
-            <CssBaseline/>
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/votingapp/original">
+                    {/*TODO add original approach here*/}
+                </Route>
+                <Route path="/votingapp">
+                    <div>
+                        <Grid container direction="column">
+                            <Topnav className="Topnav"/>
+                            <div className="ContainerStyles">
+                                {step === steps.start && <Menu step={step} steps={steps} handleNext={handleNext}/>}
+                                {step === steps.scanVotingCode && <VotingCode handleNext={handleNext} setReturnCode={setReturnCode}/>}
+                                {step === steps.returnCode && <ReturnCode handleNext={handleNext} returnCode={returnCode}/>}
+                                {step === steps.returnCodeDone && <Menu step={step} steps={steps} handleNext={handleNext}/>}
+                                {step === steps.scanConfirmationCode && <ConfirmationCode handleNext={handleNext}/>}
+                                {step === steps.finalisationCode && <FinalisationCode handleNext={handleNext}/>}
+                                {step === steps.finish && <Menu step={step} steps={steps} handleNext={handleNext}/>}
+                            </div>
+                        </Grid>
+                        <CssBaseline/>
+                    </div>
+                </Route>
+            </Switch>
+        </Router>
+
     );
 }
 

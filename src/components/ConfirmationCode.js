@@ -63,7 +63,7 @@ function ConfirmationCode(props) {
                 audio={false}
                 screenshotFormat="image/jpeg"
                 ref={webcamRef}
-                onUserMediaError={(error) => console.log(error)}/>
+                onUserMediaError={(error) => {console.log(error);}}/>
         </div>
     );
 }
