@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import overlay from "./overlay_voting.png";
+import overlay from "../assets/overlay_voting.png";
 import QrScanner from 'qr-scanner';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import qrScannerWorkerSource from '!!raw-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';

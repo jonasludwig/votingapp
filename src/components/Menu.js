@@ -1,23 +1,22 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import Box from '@material-ui/core/Box';
-import {Grid} from "@material-ui/core";
-import {Typography} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 
-function Menu({step, steps, handleNext}) {
+function Menu({step, steps, handleNext, firstButton, surveyURL}) {
 
     return (
-            <Grid
-                container
-                direction="column"
-                justify="space-evenly"
-                alignItems="center">
-                <Button
-                    variant="contained"
-                    color="primary"
+        <Grid
+            container
+            direction="column"
+            justify="space-evenly"
+            alignItems="center">
+            <Button
+                variant="contained"
+                color="primary"
                     disabled={step !== steps.start}
                     onClick={handleNext}>
-                    Wahlcode scannen
+                {firstButton}
                 </Button>
                 <Box m={1}/>
                 <Button
@@ -33,9 +32,10 @@ function Menu({step, steps, handleNext}) {
                 {step === steps.finish && <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => {var url = 'https://www.soscisurvey.de/'; //TODO add correct URL here
-                        var win = window.open(url, '_self');
-                        win.focus();}}>
+                    onClick={() => {
+                        var win = window.open(surveyURL, '_self');
+                        win.focus();
+                    }}>
                     Feedback geben
                 </Button>}
             </Grid>

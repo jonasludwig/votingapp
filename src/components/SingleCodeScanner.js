@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import overlay from "./overlay_confirmation.png"
 import QrScanner from 'qr-scanner';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import qrScannerWorkerSource from '!!raw-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
@@ -9,7 +8,7 @@ QrScanner.WORKER_PATH = URL.createObjectURL(new Blob([qrScannerWorkerSource]));
 
 const scanningInterval = 200;
 
-function ConfirmationCode(props) {
+function SingleCodeScanner(props) {
     const [intervalSet, setIntervalSet] = React.useState(false);
     const [webcamReady, setWebcamReady] = React.useState(false);
     const webcamRef = React.useRef(null);
@@ -39,7 +38,7 @@ function ConfirmationCode(props) {
                     }
                     QrScanner.scanImage(imageSrc).then(result => {
                         console.log(result);
-                        if (result === "a321-m25n1-ks1p") {
+                        if (result === props.code) {
                             clearInterval(interval);
                             if (!nextHandled) {
                                 nextHandled = true;
@@ -56,7 +55,7 @@ function ConfirmationCode(props) {
 
     return (
         <div className='CameraBox'>
-            {webcamReady && <img src={overlay} alt='' className='Overlay'/>}
+            {webcamReady && <img src={props.overlay} alt='' className='Overlay'/>}
             <Webcam
                 className="Camera"
                 videoConstraints={videoConstraints}
@@ -68,4 +67,4 @@ function ConfirmationCode(props) {
     );
 }
 
-export default ConfirmationCode;
+export default SingleCodeScanner;
