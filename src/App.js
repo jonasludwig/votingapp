@@ -8,7 +8,7 @@ import VotingCode from "./components/VotingCode";
 import ReturnCode from "./components/ReturnCode";
 import SingleCodeScanner from "./components/SingleCodeScanner";
 import FinalisationCode from "./components/FinalisationCode";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import passwordOverlay from "./assets/overlay_password.png"
 import confirmationCodeOverlay from "./assets/overlay_confirmation.png"
 import OptionSelector from "./components/OptionSelector";
@@ -47,9 +47,9 @@ function App() {
             <Grid container direction="column">
                 <Topnav className="Topnav"/>
                 <div className="ContainerStyles">
-                    <Router>
+                    <Router basenname="/votingapp">
                         <Switch>
-                            <Route path="/votingapp/original">
+                            <Route path="/original">
                                 {(step === improvedOriginalSteps.start || step === improvedOriginalSteps.returnCodeDone || step === improvedOriginalSteps.finish) &&
                                 <Menu step={step} steps={improvedOriginalSteps} handleNext={handleNext}
                                       firstButton={"Passwort scannen"} surveyURL={"https://www.soscisurvey.de/"}/>}
@@ -66,7 +66,7 @@ function App() {
                                 {step === improvedOriginalSteps.finalisationCode &&
                                 <FinalisationCode handleNext={handleNext}/>}
                             </Route>
-                            <Route path="/votingapp">
+                            <Route path="/">
                                 {(step === codeVotingSteps.start || step === codeVotingSteps.returnCodeDone || step === codeVotingSteps.finish) &&
                                 <Menu step={step} steps={codeVotingSteps} handleNext={handleNext}
                                       firstButton={"Wahlcode scannen"} surveyURL={"https://www.soscisurvey.de/"}/>}
